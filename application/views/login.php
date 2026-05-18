@@ -1,4 +1,4 @@
-<?php $this->load->view('_partials/headers.php'); ?>
+
 
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
     <div class="card glass-card shadow-lg p-4" style="width: 100%; max-width: 400px;">
@@ -38,5 +38,3 @@
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-<?php $this->load->view('_partials/footer.php'); ?>

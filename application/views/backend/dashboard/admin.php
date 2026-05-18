@@ -1,4 +1,4 @@
-<?php $this->load->view('_partials/headers.php', ['titlePage' => $title]); ?>
+
 
 <div class="container mt-4">
     <div class="row">
@@ -61,4 +61,4 @@
 .hover-shadow.transition:hover { box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; transform: translateY(-3px); }
 </style>
 
-<?php $this->load->view('_partials/footer.php'); ?>
+

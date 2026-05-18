@@ -1,89 +1,81 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed'); 
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller { 
+class Dashboard extends MY_Controller {
 
-    public function __construct() 
-    { 
-        parent::__construct(); 
-        $this->load->helper('url');  
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('url');
 
-        if ($this->session->userdata('logged_in') !== TRUE) { 
-            redirect('login');  
-            return;
-        }
-
-        $allowed_roles = array('admin', 'mekanik', 'kasir');
-        $role = strtolower((string) $this->session->userdata('role'));
-
-        if (!in_array($role, $allowed_roles, TRUE)) {
-            $this->session->sess_destroy();
+        // Cek session id sesuai pola modul Praktikum 4
+        if (!$this->session->userdata('id')) {
             redirect('login');
-            return;
-        } 
-    } 
+        }
+    }
 
-    public function index() 
-    { 
-        $role = strtolower((string) $this->session->userdata('role'));
+    public function index()
+    {
+        // Routing ke dashboard sesuai role (kebutuhan UAS Bengkel Motor)
+        $role = $this->session->userdata('role');
 
         if ($role === 'admin') {
             redirect('backend/dashboard/admin');
-            return;
-        }
-
-        if ($role === 'mekanik') {
+        } elseif ($role === 'mekanik') {
             redirect('backend/dashboard/mekanik');
-            return;
-        }
-
-        if ($role === 'kasir') {
+        } elseif ($role === 'kasir') {
             redirect('backend/dashboard/kasir');
-            return;
+        } else {
+            // Role tidak dikenal, paksa logout
+            $this->session->unset_userdata('id');
+            redirect('login');
         }
-
-        $this->session->sess_destroy();
-        redirect('login');
     }
 
     public function admin()
     {
-        $this->require_role('admin');
-        $data = $this->build_view_data('Dashboard Admin');
-        $this->load->view('backend/dashboard/admin', $data);
+        // Pastikan hanya admin yang bisa akses
+        if ($this->session->userdata('role') !== 'admin') {
+            redirect('backend/dashboard');
+        }
+
+        $data['title']    = 'Halaman Dashboard Admin';
+        $data['nama']     = $this->session->userdata('nama');
+        $data['username'] = $this->session->userdata('username');
+        $data['role']     = strtoupper($this->session->userdata('role'));
+        $data['titlePage'] = $data['title'];
+        $this->loadPartials('backend/dashboard/admin', $data);
     }
 
     public function mekanik()
     {
-        $this->require_role('mekanik');
-        $data = $this->build_view_data('Dashboard Mekanik');
-        $this->load->view('backend/dashboard/mekanik', $data);
+        // Pastikan hanya mekanik yang bisa akses
+        if ($this->session->userdata('role') !== 'mekanik') {
+            redirect('backend/dashboard');
+        }
+
+        $data['title']    = 'Halaman Dashboard Mekanik';
+        $data['nama']     = $this->session->userdata('nama');
+        $data['username'] = $this->session->userdata('username');
+        $data['role']     = strtoupper($this->session->userdata('role'));
+        $data['titlePage'] = $data['title'];
+        $this->loadPartials('backend/dashboard/mekanik', $data);
     }
 
     public function kasir()
     {
-        $this->require_role('kasir');
-        $data = $this->build_view_data('Dashboard Kasir');
-        $this->load->view('backend/dashboard/kasir', $data);
-    }
-
-    private function build_view_data($title)
-    {
-        return array(
-            'title' => $title,
-            'nama' => (string) $this->session->userdata('nama'),
-            'username' => (string) $this->session->userdata('username'),
-            'role' => strtoupper((string) $this->session->userdata('role')),
-        );
-    }
-
-    private function require_role($expected_role)
-    {
-        $current_role = strtolower((string) $this->session->userdata('role'));
-        if ($current_role !== $expected_role) {
+        // Pastikan hanya kasir yang bisa akses
+        if ($this->session->userdata('role') !== 'kasir') {
             redirect('backend/dashboard');
-            exit;
         }
-    } 
+
+        $data['title']    = 'Halaman Dashboard Kasir';
+        $data['nama']     = $this->session->userdata('nama');
+        $data['username'] = $this->session->userdata('username');
+        $data['role']     = strtoupper($this->session->userdata('role'));
+        $data['titlePage'] = $data['title'];
+        
+        $this->loadPartials('backend/dashboard/kasir', $data);
+    }
 
 }

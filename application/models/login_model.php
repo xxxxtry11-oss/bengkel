@@ -1,14 +1,12 @@
-<?php 
-class Login_model extends CI_Model { 
- 
-    public function get_user_for_login($username)
+<?php
+class Login_model extends CI_Model {
+
+    public function getUser($username)
     {
-        return $this->db
-            ->from('user')
-            ->where('username', $username)
-            ->limit(1)
-            ->get()
-            ->row_array();
+        $query = $this->db->query(
+            "SELECT * FROM user WHERE username = '" . $username . "' "
+        )->row_array();
+        return $query;
     }
- 
+
 }
