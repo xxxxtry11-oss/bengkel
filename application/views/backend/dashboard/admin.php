@@ -14,7 +14,8 @@
                     <span class="badge bg-success mt-2 px-3 py-2 text-uppercase"><?= html_escape($role) ?></span>
                 </div>
                 <div class="list-group list-group-flush border-top">
-                    <a href="#" class="list-group-item list-group-item-action active"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                    <a href="<?= base_url('backend/dashboard') ?>" class="list-group-item list-group-item-action active"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                    <a href="<?= base_url('backend/kendaraan') ?>" class="list-group-item list-group-item-action"><i class="bi bi-car-front me-2"></i> Data Kendaraan</a>
                     <a href="#" class="list-group-item list-group-item-action text-danger" onclick="event.preventDefault(); window.location.href='<?= base_url('login/logout') ?>';"><i class="bi bi-box-arrow-right me-2"></i> Log out</a>
                 </div>
             </div>
@@ -32,6 +33,12 @@
                             <div class="p-3 border rounded bg-light hover-shadow transition">
                                 <h6 class="fw-bold"><i class="bi bi-people text-primary me-2"></i> Kelola Data User</h6>
                                 <p class="small text-muted mb-0">Atur hak akses admin, mekanik, dan kasir.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" onclick="window.location.href='<?= base_url('backend/kendaraan') ?>'">
+                            <div class="p-3 border rounded bg-light hover-shadow transition">
+                                <h6 class="fw-bold"><i class="bi bi-car-front text-primary me-2"></i> Kelola Data Kendaraan</h6>
+                                <p class="small text-muted mb-0">Atur data kendaraan milik pelanggan.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
