@@ -11,11 +11,13 @@
                     <p class="text-muted small mb-0">@<?= html_escape($this->session->userdata('username')) ?></p>
                     <span class="badge bg-success mt-2 px-3 py-2 text-uppercase"><?= html_escape($this->session->userdata('role')) ?></span>
                 </div>
-                <div class="list-group list-group-flush border-top">
-                    <a href="<?= base_url('backend/dashboard') ?>" class="list-group-item list-group-item-action"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-                    <a href="<?= base_url('backend/kendaraan') ?>" class="list-group-item list-group-item-action active"><i class="bi bi-car-front me-2"></i> Data Kendaraan</a>
-                    <a href="#" class="list-group-item list-group-item-action text-danger" onclick="event.preventDefault(); window.location.href='<?= base_url('login/logout') ?>';"><i class="bi bi-box-arrow-right me-2"></i> Log out</a>
-                </div>
+                    <div class="list-group list-group-flush border-top">
+                        <a href="<?= base_url('backend/dashboard') ?>" class="list-group-item list-group-item-action"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                        <a href="<?= base_url('backend/kendaraan') ?>" class="list-group-item list-group-item-action active"><i class="bi bi-car-front me-2"></i> Data Kendaraan</a>
+                        <a href="<?= base_url('backend/antrian') ?>" class="list-group-item list-group-item-action"><i class="bi bi-list-ol me-2"></i> Antrean</a>
+                        <a href="<?= base_url('backend/servis') ?>" class="list-group-item list-group-item-action"><i class="bi bi-wrench me-2"></i> Data Servis</a>
+                        <a href="#" class="list-group-item list-group-item-action text-danger" onclick="event.preventDefault(); window.location.href='<?= base_url('login/logout') ?>';"><i class="bi bi-box-arrow-right me-2"></i> Log out</a>
+                    </div>
             </div>
         </div>
 
