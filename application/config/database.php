@@ -74,6 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
+<<<<<<< HEAD
     'dsn'      => '',
     'hostname' => 'localhost',
     'username' => 'root',
@@ -86,4 +87,25 @@ $db['default'] = array(
     'cache_on' => FALSE,
     'char_set' => 'utf8',
     'dbcollat' => 'utf8_general_ci'
+=======
+    'dsn'   => '',
+    'hostname' => 'localhost',
+    'username' => 'root',
+    'password' => '',
+    'database' => 'bengkel_ummat',
+    'dbdriver' => 'mysqli',
+    'dbprefix' => '',
+    'pconnect' => FALSE,
+    'db_debug' => (ENVIRONMENT !== 'production'),
+    'cache_on' => FALSE,
+    'cachedir' => '',
+    'char_set' => 'utf8',
+    'dbcollat' => 'utf8_general_ci',
+    'swap_pre' => '',
+    'encrypt' => FALSE,
+    'compress' => FALSE,
+    'stricton' => FALSE,
+    'failover' => array(),
+    'save_queries' => TRUE
+>>>>>>> c92f90e99f2220c0cca66fbebbc6198ee40e1bde
 );

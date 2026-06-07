@@ -23,7 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+<<<<<<< HEAD
 $config['base_url'] = 'http://localhost/sparepart_app/';
+=======
+$config['base_url'] = 'http://localhost/bengkel_ummat/';
+>>>>>>> c92f90e99f2220c0cca66fbebbc6198ee40e1bde
 
 /*
 |--------------------------------------------------------------------------
@@ -326,7 +330,11 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
+<<<<<<< HEAD
 $config['encryption_key'] = '';
+=======
+$config['encryption_key'] = 'bengkelummat123';
+>>>>>>> c92f90e99f2220c0cca66fbebbc6198ee40e1bde
 
 /*
 |--------------------------------------------------------------------------
@@ -387,7 +395,11 @@ $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_samesite'] = 'Lax';
 $config['sess_expiration'] = 7200;
+<<<<<<< HEAD
 $config['sess_save_path'] = NULL;
+=======
+$config['sess_save_path'] = sys_get_temp_dir();
+>>>>>>> c92f90e99f2220c0cca66fbebbc6198ee40e1bde
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
